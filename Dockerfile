@@ -33,9 +33,10 @@ ENV ZSH_THEME agnoster
 RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | zsh || true
 
 # Install python pkgs
-RUN pip3 install -U pip --no-cache-dir
-RUN pip3 install torch==1.12.0 torchvision==0.13.0 --no-cache-dir
-RUN pip3 install d2l==1.0.0b0 --no-cache-dir
+COPY ./d2l-1.0.0b0 /d2l-1.0.0b0
+RUN pip3 install /d2l-1.0.0b0 --no-cache-dir
+RUN pip3 install torch==1.12.1 torchvision==0.13.1 --no-cache-dir
+RUN pip3 install -U pip setuptools wheel --no-cache-dir
 COPY ./ops/requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
@@ -89,9 +90,7 @@ COPY ./ops/JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 COPY ./ops/tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
 
 RUN mkdir d2l-en && cd d2l-en
-RUN curl https://d2l.ai/d2l-en.zip -o d2l-en.zip
-RUN unzip d2l-en.zip && rm d2l-en.zip
-RUN cd pytorch
+RUN curl https://d2l.ai/d2l-en.zip -o d2l-en.zip && unzip d2l-en.zip && rm d2l-en.zip
 
 # Mount point of your $HOME
 #ARG user_home

@@ -8,7 +8,7 @@ PORT_FREE: 9990
 APP_NAME: my-ds-d2l
 CONTAINER_NAME: ws-d2l
 BASE_IMAGE_NAME: python
-BASE_IMAGE_TAG: 3.10-bullseye
+BASE_IMAGE_TAG: 3.9-bullseye
 SHM_SIZE: 16g
 DOCKER_HOST: tcp://docker:2375
 DOCKER_ACCOUNT: ysraell
