@@ -28,14 +28,14 @@ Check `settings.yml` first!
 To build the image:
 
 ```bash
-$ ./build
+./build
 ```
 
 ## Start:
 To start the image and set up the servers:
 
 ```bash
-$ ./start
+./start
 ```
 - Every time tha you run this command, will create a new container!! Run it once (always as possible).
 
@@ -45,41 +45,41 @@ Wait for get the JupterLab URL access.
 To get the JupterLab URL access:
 
 ```bash
-$ ./list_jupyter
+./list_jupyter
 ```
 
 ## Stopping:
 To stop the container:
 
 ```bash
-$ ./stop
+./stop
 ```
 
 ## Load previous container:
 To load a container already stared before:
 
 ```bash
-$ ./load
+./load
 ```
 
 ## REmove previous container:
 To remove a container already stared before:
 
 ```bash
-$ ./rm_container
+./rm_container
 ```
 
 ## Run a shell in the running container:
 To enter into container:
 
 ```bash
-$ ./bash
+./bash
 ```
 
 or
 
 ```bash
-$ ./zsh
+./zsh
 ```
 
 
@@ -88,11 +88,11 @@ $ ./zsh
 in Linux...
 
 ```bash
-$ docker-compose -f docker-compose.yml up
+docker-compose -f docker-compose.yml up
 ```
 
 ```bash
-$ docker-compose -f docker-compose.yml up
+docker-compose -f docker-compose.yml up
 ```
 in Windows with `docker-compose.windows.yml` and check mount point in `settings.yml` beafore use.
 
@@ -112,8 +112,8 @@ workstation_1 | or http://127.0.0.1:8888/lab?token=2ee0f77e160ce90db827324b66a51
 ## Run Stremalit apps:
 
 ```bash
-$ ./scripts/bash.sh
-$ python3 -m launchpad.main --port 8000 ./folder_with_pys
+./scripts/bash.sh
+python3 -m launchpad.main --port 8000 ./folder_with_pys
 ```
 
 - Or check script `servers.sh` and uncomment the respective line.
@@ -121,7 +121,7 @@ $ python3 -m launchpad.main --port 8000 ./folder_with_pys
 ### To create symbolic links to scripts:
 
 ```bash
-$ for a in `ls  scripts/*.sh`;
+for a in `ls  scripts/*.sh`;
     do
         ln -s $a `echo $a |cut -d '/' -f 2 |cut -d '.' -f 1`
     done
