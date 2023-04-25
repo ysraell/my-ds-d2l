@@ -1,5 +1,6 @@
-# My-DS
-My data science Docker image.
+# My-DS-D2L
+
+My data science Docker image for use for [Dive into Deep Learning](https://d2l.ai/index.html)
 
 [![Python 3.7](https://img.shields.io/badge/Python-3.7-gree.svg)](https://www.python.org/downloads/release/python-370/)
 [![Python 3.8](https://img.shields.io/badge/Python-3.8-gree.svg)](https://www.python.org/downloads/release/python-380/)

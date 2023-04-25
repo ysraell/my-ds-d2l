@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
   pkg-config \
   tree \
   jq \
+  zip \
   && rm -rf /var/cache/apt && rm -rf /var/lib/apt/lists/*
 
 # Jupyter process and Node.js 14.
@@ -33,6 +34,8 @@ RUN wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # Install python pkgs
 RUN pip3 install -U pip --no-cache-dir
+RUN pip3 install torch==1.12.0 torchvision==0.13.0 --no-cache-dir
+RUN pip3 install d2l==1.0.0b0 --no-cache-dir
 COPY ./ops/requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
@@ -84,6 +87,11 @@ RUN cat /jupyterlab_config.py >>/root/.jupyter/jupyter_notebook_config.py
 # User configs and my templates for JupyterLab
 COPY ./ops/JupyterTemplates/DS/*.ipynb /JupyterTemplates/DS/
 COPY ./ops/tracker.jupyterlab-settings /root/.jupyter/lab/user-settings/@jupyterlab/notebook-extension/
+
+RUN mkdir d2l-en && cd d2l-en
+RUN curl https://d2l.ai/d2l-en.zip -o d2l-en.zip
+RUN unzip d2l-en.zip && rm d2l-en.zip
+RUN cd pytorch
 
 # Mount point of your $HOME
 #ARG user_home
