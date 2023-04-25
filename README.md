@@ -11,6 +11,14 @@ My data science Docker image for use for [Dive into Deep Learning](https://d2l.a
 ![](https://img.shields.io/badge/Work%20on-Linux%20%26%20macOS-blue)
 
 
+## To install all you need for use the `d2l`:
+
+```bash
+git clone https://github.com/ysraell/my-ds-d2l.git
+pip3 install my-ds-d2l/d2l-1.0.0b0
+pip3 install torch==1.12.1 torchvision==0.13.1
+```
+
 Base Docker image: `python`
 
 ## Settings:

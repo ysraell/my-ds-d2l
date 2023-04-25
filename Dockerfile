@@ -41,6 +41,7 @@ COPY ./ops/requirements.txt /requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
 # Jupyter process 
+RUN pip3 install ipysankeywidget --no-cache-dir
 RUN jupyter labextension install \
   jupyterlab_templates \
   ipytree \
